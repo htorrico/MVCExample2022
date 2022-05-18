@@ -56,7 +56,8 @@ namespace MVCExample2022.Controllers
         // GET: Person/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = ((List<PersonModel>)Session["people"]).Where(x => x.PersonID == id).FirstOrDefault();
+            return View(model);
         }
 
         // POST: Person/Edit/5
